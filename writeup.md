@@ -6,6 +6,6 @@
 
 ## Feature List
 
-## Technical Specs
+## Technical Specs (1-2pg)
 
 ## Next Steps
