@@ -1,4 +1,7 @@
-# cs51-yo
-Predicting how politicians will vote
+# CS51 Final Project
 
-[Based off the Ideal Points algorithm](http://www.cs.columbia.edu/~blei/papers/GerrishBlei2012.pdf)
+Predicting how politicians will vote.
+
+Neel Mehta, Ajay Nathan, Saranya Vijayakumar, Sam Lam.
+
+[Based off the Ideal Points algorithm](http://www.cs.columbia.edu/~blei/papers/GerrishBlei2012.pdf).
