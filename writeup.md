@@ -72,7 +72,9 @@ The expected/average value of EE[i,d] is 0, so finding the average EE[i,d] for a
 ## Next Steps
 
 Figure out languages, tools, frameworks
-    We will use Python, and we set up a Github for our project. 
+
+We will use Python, and we set up a Github for our project. 
+
 By the next checkpoint, we will have our environments entirely set up, and will
 play with Python. 
 
