@@ -1,6 +1,6 @@
 # Writeup
 
-[Read this algorithm spec](http://www.cs.columbia.edu/~blei/papers/GerrishBlei2012.pdf)
+References: [1](http://www.cs.columbia.edu/~blei/papers/GerrishBlei2012.pdf), [2](http://www.stat.columbia.edu/~gelman/research/published/171.pdf)
 
 ## Brief Overview
 
@@ -59,7 +59,7 @@ R[i,d] = min(P(yes)[i,d], 1 - P(yes)[i,d])
 
 Note that E[i,d] is either 0 or 1, while R[i,d] is any real number between 0 and 1 inclusive.
 
-To control for this difference, we can assign an excess error EE[i,d]:
+As mentioned above, we can determine a consistent measure of error by defining an excess error EE[i,d]:
 
 ```
 EE[i,d] = E[i,d] - R[i,d]
