@@ -18,6 +18,8 @@ Each lawmaker *i* has an ideal point X[i] that represents where they stand on th
 
 Each bill *d* has a popularity (difficulty) B[d], which reflects how overall attractive the bill is, and a polarity (discrimination) A[d], which reflects where the bill is on the left/right axis. When popularity B[d] is high (very positive), most lawmakers will vote yes. When popularity B[d] is low (very negative), most lawmakers will vote no. When popularity B[d] is near zero, the polarity A[d] and the individual lawmaker's ideal point X[i] determine how the lawmaker will vote.
 
+X[i], A[d], and B[d] are usually distributed according to the standard normal distribution N(0, 1).
+
 We can use this information to predict if the lawmaker will vote yes:
 
 ```
