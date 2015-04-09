@@ -14,11 +14,13 @@ A machine learning classifier that assigns scores to bills and representatives s
 
 #### Building model
 
-Each lawmaker *i* has an ideal point X[i] that represents where they stand on the left/right spectrum (not sure what correlates to what.)
+Each lawmaker *i* has an ideal point X[i] that represents where they stand on the left/right spectrum.
 
 Each bill *d* has a popularity (difficulty) B[d], which reflects how overall attractive the bill is, and a polarity (discrimination) A[d], which reflects where the bill is on the left/right axis. When popularity B[d] is high (very positive), most lawmakers will vote yes. When popularity B[d] is low (very negative), most lawmakers will vote no. When popularity B[d] is near zero, the polarity A[d] and the individual lawmaker's ideal point X[i] determine how the lawmaker will vote.
 
 X[i], A[d], and B[d] are usually distributed according to the standard normal distribution N(0, 1).
+
+The signs of X[i] and A[d] are arbitrary as long as they are consistent (positive can indicate liberal and negative conservative, or vice versa.) We will see that, mathematically, it only matters if the signs of X[i] and A[d] are the same or different.
 
 We can use this information to predict if the lawmaker will vote yes:
 
@@ -59,9 +61,9 @@ But we can control for this by introducing the expected error rate R[i,d], which
 R[i,d] = min(P(yes)[i,d], 1 - P(yes)[i,d])
 ```
 
-Note that E[i,d] is either 0 or 1, while R[i,d] is any real number between 0 and 1 inclusive.
+Note that E[i,d] is either 0 or 1, while R[i,d] is any real number between 0 and 1, inclusive.
 
-As mentioned above, we can determine a consistent measure of error by defining an excess error EE[i,d]:
+As mentioned above, we want to determine a consistent measure of error, which we do by defining an excess error EE[i,d]:
 
 ```
 EE[i,d] = E[i,d] - R[i,d]
