@@ -61,9 +61,9 @@ But we can control for this by introducing the expected error rate R[i,d], which
 R[i,d] = min(P(yes)[i,d], 1 - P(yes)[i,d])
 ```
 
-Note that E[i,d] is either 0 or 1, while R[i,d] is any real number between 0 and 1 inclusive.
+Note that E[i,d] is either 0 or 1, while R[i,d] is any real number between 0 and 1, inclusive.
 
-As mentioned above, we can determine a consistent measure of error by defining an excess error EE[i,d]:
+As mentioned above, we want to determine a consistent measure of error, which we do by defining an excess error EE[i,d]:
 
 ```
 EE[i,d] = E[i,d] - R[i,d]
