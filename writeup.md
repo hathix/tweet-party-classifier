@@ -25,10 +25,11 @@ The backend algorithms will be written in Python, which is very well-suited for 
 
 We will use the lightweight [Flask](http://flask.pocoo.org/) framework to present a simple RESTful API, including endpoints such as
 
-* PUT training data
-* GET list of politicians and information about each
+* PUT lawmaker data
+* PUT bill data
+* GET list of lawmaker and information about each
 * GET list of bills and information about each
-* GET probability that a given politician will vote yes on a given bill (this will call our algorithm)
+* POST probability that a given politician will vote yes on a given bill (this will call our algorithm)
 
 We will use standard HTML, CSS, and JavaScript to implement a simple frontend that allows users to choose politicians and bills and then run the algorithm.
 
@@ -44,7 +45,7 @@ Each bill *d* has a popularity (difficulty) B[d], which reflects how overall att
 
 X[i], A[d], and B[d] are usually distributed according to the standard normal distribution N(0, 1).
 
-The signs of X[i] and A[d] are arbitrary as long as they are consistent (positive can indicate liberal and negative conservative, or vice versa.) We will see that, mathematically, it only matters if the signs of X[i] and A[d] are the same or different.
+The signs of X[i] and A[d] are arbitrary as long as they are consisent (positive can indicate liberal and negative conservative, or vice versa.) We will see that, mathematically, it only matters if the signs of X[i] and A[d] are the same or different.
 
 We can use this information to predict if the lawmaker will vote yes:
 
@@ -52,9 +53,9 @@ We can use this information to predict if the lawmaker will vote yes:
 P(yes)[i,d] = S(X[i]A[d] + B[d])
 ```
 
-where S(x) = the inverse logistic function `(e^x)/(1 + e^x)`. S(x) tends toward 0 as x approaches -Infinity and tends toward 1 as x approaches +Infinity. This distribution is useful because it allows for outliers.
+where S(x) = the logistic function `(e^x)/(1 + e^x)`. S(x) tends toward 0 as x approaches -Infinity and tends toward 1 as x approaches +Infinity. This distribution is useful because it allows for outliers.
 
-We also know C[i,d], where
+We are also given C[i,d], where
 
 ```
 C[i,d] =
