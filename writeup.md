@@ -1,10 +1,10 @@
-# Writeup
+# CS51 Final Project Writeup
 
-References: [1](http://www.cs.columbia.edu/~blei/papers/GerrishBlei2012.pdf), [2](http://www.stat.columbia.edu/~gelman/research/published/171.pdf)
+**Neel Mehta, Saranya Vijayakumar, Samuel Lam, Ajay Nathan**
 
 ## Brief Overview
 
-A machine learning classifier that assigns scores to bills and representatives so as to calculate the probability that representatives will vote yes on a given bill. Data for the project will come from Quorum Analytics.
+A machine learning classifier that assigns scores to bills and representatives so as to calculate the probability that representatives will vote yes on a given bill. Data for the project will come from [Quorum Analytics](https://quorum.us), of which Ajay is an employee.
 
 ## Feature List
 
