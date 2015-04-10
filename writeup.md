@@ -17,7 +17,23 @@ Filtering by a bill's issue area. That is, we could classify members of Congress
 
 Adding complexity and therefore accuracy to the classifier. Quorum Analytics has calculated over 100 different statistics about every member of Congress, and we can pick one or more of these to add to the classifer. 
 
-## Technical Specs (1-2pg)
+## Technical Specs
+
+### Implementation
+
+The backend algorithms will be written in Python, which is very well-suited for mathematical tasks and machine learning. Furthermore, its functional features will help us build and test our algorithm; we will take advantage of value-based programming, immutable (and hence easily testable) data structures, and bonuses like map() and fold().
+
+We will use Flask to present a simple RESTful API, including endpoints such as
+
+* PUT training data
+* GET list of politicians and information about each
+* GET list of bills and information about each
+* GET probability that a given politician will vote yes on a given bill (this will call our algorithm)
+
+We will use standard HTML, CSS, and JavaScript to implement a simple frontend that allows users to choose politicians and bills and then run the algorithm.
+
+We will deploy the app using [Heroku](https://heroku.com).
+
 
 ### Mathematical modeling
 
@@ -79,6 +95,10 @@ EE[i,d] = E[i,d] - R[i,d]
 ```
 
 The expected/average value of EE[i,d] is 0, so finding the average EE[i,d] for all lawmakers *i* and bills *d* is an informative measure of the error in the model.
+
+### Machine learning
+
+**TODO**
 
 ## Next Steps
 Figure out how exactly we're getting the data from Quorum Analytics
