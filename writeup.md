@@ -23,7 +23,7 @@ Adding complexity and therefore accuracy to the classifier. Quorum Analytics has
 
 The backend algorithms will be written in Python, which is very well-suited for mathematical tasks and machine learning. Furthermore, its functional features will help us build and test our algorithm; we will take advantage of value-based programming, immutable (and hence easily testable) data structures, and bonuses like map() and fold().
 
-We will use Flask to present a simple RESTful API, including endpoints such as
+We will use the lightweight [Flask](http://flask.pocoo.org/) framework to present a simple RESTful API, including endpoints such as
 
 * PUT training data
 * GET list of politicians and information about each
@@ -33,7 +33,6 @@ We will use Flask to present a simple RESTful API, including endpoints such as
 We will use standard HTML, CSS, and JavaScript to implement a simple frontend that allows users to choose politicians and bills and then run the algorithm.
 
 We will deploy the app using [Heroku](https://heroku.com).
-
 
 ### Mathematical modeling
 
