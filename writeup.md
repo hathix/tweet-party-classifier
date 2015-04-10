@@ -4,9 +4,18 @@ References: [1](http://www.cs.columbia.edu/~blei/papers/GerrishBlei2012.pdf), [2
 
 ## Brief Overview
 
-A machine learning classifier that assigns scores to bills and representatives so as to calculate the probability that a given representative will vote yes on a given bill.
+A machine learning classifier that assigns scores to bills and representatives so as to calculate the probability that representatives will vote yes on a given bill. Data for the project will come from Quorum Analytics.
 
 ## Feature List
+### Core Features
+Given a bill, its populairity, and how liberal or conservative it is, our project will be able to calculate the probability that a politican will vote yes on the bill.
+A graphical user interface to allow users to select a politican and manually input a bill.
+### Cool Extensions
+Giving users the ability to select actual bills currently in Congress and use Quorum data to accurately determine the popularity of the bill and how liberal or conservative it is. 
+
+Filtering by a bill's issue area. That is, we could classify members of Congress differently depending on what issue's the bill is talking about.
+
+Adding complexity and therefore accuracy to the classifier. Quorum Analytics has calculated over 100 different statistics about every member of Congress, and we can pick one or more of these to add to the classifer. 
 
 ## Technical Specs (1-2pg)
 
@@ -72,6 +81,7 @@ EE[i,d] = E[i,d] - R[i,d]
 The expected/average value of EE[i,d] is 0, so finding the average EE[i,d] for all lawmakers *i* and bills *d* is an informative measure of the error in the model.
 
 ## Next Steps
+Figure out how exactly we're getting the data from Quorum Analytics
 
 Figure out languages, tools, frameworks
 
