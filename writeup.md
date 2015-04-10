@@ -34,7 +34,7 @@ We will use standard HTML, CSS, and JavaScript to implement a simple frontend th
 
 We will deploy the app using [Heroku](https://heroku.com).
 
-### Mathematical modeling
+### Modeling & The Ideal Points Algorithm
 
 #### Building model
 
@@ -98,6 +98,10 @@ The expected/average value of EE[i,d] is 0, so finding the average EE[i,d] for a
 ### Machine learning
 
 **TODO**
+
+* Bayesian? Clustering?
+* Framework? Probably scipy & numpy
+* In Python
 
 ## Next Steps
 Figure out how exactly we're getting the data from Quorum Analytics
