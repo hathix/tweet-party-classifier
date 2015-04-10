@@ -109,4 +109,11 @@ We will use Python, and we set up a Github for our project.
 By the next checkpoint, we will have our environments entirely set up, and will
 play with Python. 
 
+## References
+
+* [How They Vote: Issue-Adjusted Models of Legislative Behavior](http://www.cs.columbia.edu/~blei/papers/GerrishBlei2012.pdf)
+* [Practical Issues in Implementing and Understanding
+Bayesian Ideal Point Estimation](http://www.stat.columbia.edu/~gelman/research/published/171.pdf)
+* [Topic-Factorized Ideal Point Estimation Model for
+Legislative Voting Network](http://www.ccs.neu.edu/home/ypgu/papers/KDD14_Voting.pdf)
 
