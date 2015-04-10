@@ -98,21 +98,21 @@ The expected/average value of EE[i,d] is 0, so finding the average EE[i,d] for a
 
 ### Machine learning
 
-**TODO**
+We're investigating possible machine learning algorithms to use to determine the optimal X[i] for every lawmaker *i* and the optimal A[d] and B[d] for every bill *d*. These include:
 
-* Bayesian? Clustering?
-* Framework? Probably scipy & numpy
-* In Python
+* Naive Bayes / Kernel approximation method i.e. RBF: seems useful but we aren't sure how we would apply it to our specific problem.
+* Clustering with k-means: make a 4-dimensional space (X[i], A[d], B[d], C[i,d]) and find clusters in this space.
+* Regression: simply tweak the parameter values based on whether the prediction was right or wrong.
 
 ## Next Steps
-Figure out how exactly we're getting the data from Quorum Analytics
 
-Figure out languages, tools, frameworks
+By next checkpoint:
 
-We will use Python, and we set up a Github for our project. 
-
-By the next checkpoint, we will have our environments entirely set up, and will
-play with Python. 
+* Learn Python
+* Set up Flask and Heroku development environments
+* Pick a machine learning algorithm
+* Get the data from Quorum
+* Make mockups of frontend pages
 
 ## References
 
