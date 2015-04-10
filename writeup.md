@@ -29,7 +29,7 @@ We will use the lightweight [Flask](http://flask.pocoo.org/) framework to presen
 * PUT bill data
 * GET list of lawmaker and information about each
 * GET list of bills and information about each
-* POST probability that a given politician will vote yes on a given bill (this will call our algorithm)
+* GET probability that a given politician will vote yes on a given bill (this will call our algorithm)
 
 We will use standard HTML, CSS, and JavaScript to implement a simple frontend that allows users to choose politicians and bills and then run the algorithm.
 
