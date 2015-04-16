@@ -13,7 +13,7 @@ Neel Mehta, Ajay Nathan, Saranya Vijayakumar, Sam Lam.
 ## Getting started
 
 ```
-$ pip install numpy nltk
+$ pip install -r requirements.txt
 $ python
 > import nltk
 > nltk.download() # follow graphical installer
