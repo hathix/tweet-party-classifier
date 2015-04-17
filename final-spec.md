@@ -99,6 +99,7 @@ Friday, April 24
 - Interface
 - Helper functions (like accuracy calculation)
 - Finish front end
-- Reach goals
+- "Reach: goals
+- testing
 
 Due: May 1
