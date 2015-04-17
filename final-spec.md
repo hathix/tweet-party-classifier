@@ -16,8 +16,10 @@ This project uses Python 2 and Django. Check the [Readme](https://github.com/hat
 We use the [Natural Language Toolkit](http://www.nltk.org/) to simplify processing the raw Tweet text.
 
 ## Naive Bayes 
-"""
+
 The classifier is based on the Naive Bayes algorithm: the probabilty of a tweet is determined first by applying Bayes Rule to express P(label/feature) in terms of P(label) and P(features|label):
+
+"""
 
 |                       P(label) * P(features|label)
 |  P(label|features) = ------------------------------
@@ -29,10 +31,13 @@ The 'naive' assumption is then made that all features are independent, given the
 |  P(label|features) = --------------------------------------------
 |                                         P(features)
 
+"""
 
 Rather than computing P(features) explicitly, the algorithm
 calculates the denominator for each label, and then normalizes them so that they
 sum to one:
+
+"""
 
 |                       P(label) * P(f1|label) * ... * P(fn|label)
 |  P(label|features) = --------------------------------------------
