@@ -18,4 +18,15 @@ Neel
 Samuel
 
 ## Timeline
-Saranya
+Writeup due Friday, April 17
+- Create front end
+- Write extract function
+- Figure out how to get tweets from Quorum (data procurement)
+- Write classifier - train and accuracy 
+
+Friday, April 24
+- Write Naive Bayes classifier
+- Interfaces 
+- Helper functions (like accuracy calculation)
+
+Due: May 1
