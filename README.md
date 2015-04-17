@@ -12,11 +12,15 @@ Neel Mehta, Ajay Nathan, Saranya Vijayakumar, Sam Lam.
 
 ## Getting started
 
+This project uses [Python 3](https://python.org).
+
 ```
-$ pip install -r requirements.txt
-$ python
+$ pip3 install -r requirements.txt
+$ python3
 > import nltk
 > nltk.download() # follow graphical installer
-$ python server.py
+$ python3 server.py
 $ open http://127.0.0.1:5000/
 ```
+
+## Interfaces
