@@ -72,10 +72,7 @@ The classifier is based on the Naive Bayes algorithm: the probabilty of a tweet 
 |                              P(features)
 
 ```
-<<<<<<< HEAD
 
-=======
->>>>>>> refs/remotes/origin/master
 The 'naive' assumption is then made that all features are independent, given the label:
 
 ```
