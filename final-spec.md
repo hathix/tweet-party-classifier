@@ -91,11 +91,10 @@ sum to one:
 
 ```
 
-In order to find the most common words in the population of training data that are not stop words, this project utilizes NLTK (as iterated above): nltk.NaiveBayesClassifier with the class nltk.probability.FreqDist to identify top words.
+In order to find the most common words in the population of training data that are not stop words, this project utilizes our custom classifier with the class nltk.probability.FreqDist to identify top words.
 
 ```
 from nltk.probability import FreqDist, DictionaryProbDist
-from nltk.classify.api import ClassifierI
 ```
 
 - Collect_all_words method returns an array of all words from the training tweets
@@ -117,19 +116,23 @@ def identify_top_words(self, all_words):
 
 - We will obtain the features of each tweet
 - Collect the training set of tweets and their individual features and pass them to algorithm
-- Once NaiveBayesClassifier is trained, we will iterate through the set of tweets that remain to be classified. The classifier will guess the category for each item.
+- Once the classifier is trained, we will iterate through the set of tweets that remain to be classified. The classifier will guess the category for each item.
 
 ```
 for item in tweets_to_classify:
 	features = item.features(top_words)
-	category = classifier.classify()
+	category = classifier.classify(features)
 ```
 
-For accuracy evaluation we can use nltk.classify.util.accuracy with the test set.
+For accuracy evaluation we can use the custom `classifier.accuracy` function.
 
 ```
-print(nltk.classify.accuracy(classifier, test_set))
+print(classifier.accuracy(test_set))
 ```
+
+## Version Control
+
+We are using GitHub for our project; it lives at [hathix/tweet-party-classifier](https://github.com/hathix/tweet-party-classifier). So far we have scaffolded out a Django app that can be run by following instructions in the [README](https://github.com/hathix/tweet-party-classifier/blob/master/README.md).
 
 ## Timeline
 Writeup due Friday, April 17
