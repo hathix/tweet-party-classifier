@@ -20,14 +20,16 @@ Samuel
 
 ## Timeline
 Writeup due Friday, April 17
-- Create front end
+- Create front end - Django app
 - Write extract function
 - Figure out how to get tweets from Quorum (data procurement)
-- Write classifier - train and accuracy 
+- Write classifier - train and test
 
 Friday, April 24
-- Write Naive Bayes classifier
-- Interfaces 
+- Finish writing Naive Bayes classifier
+- Interface
 - Helper functions (like accuracy calculation)
+- Finish front end
+- Reach goals
 
 Due: May 1
