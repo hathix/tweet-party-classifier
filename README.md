@@ -1,4 +1,4 @@
-# CS51 Final Project
+# Tweet Party Classifier: CS51 Final Project
 
 <!--
 **Predicting how politicians will vote.**
