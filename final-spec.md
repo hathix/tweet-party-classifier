@@ -11,7 +11,9 @@ Quorum has over 1 million labeled Tweets in their database. We will use these Tw
 Neel
 
 ## Technical Specifications
-Neel
+This project uses Python 2 and Django. Check the [Readme](https://github.com/hathix/tweet-party-classifier/blob/master/README.md) for instructions on running on your own machine.
+
+We use the [Natural Language Toolkit](http://www.nltk.org/) to simplify processing the raw Tweet text.
 
 ## Naive Bayes
 Samuel
