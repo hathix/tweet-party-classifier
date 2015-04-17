@@ -22,5 +22,3 @@ $ python3
 $ python3 server.py
 $ open http://127.0.0.1:5000/
 ```
-
-## Interfaces
