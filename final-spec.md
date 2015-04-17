@@ -152,6 +152,8 @@ print(classifier.accuracy(test_set))
 
 We are using GitHub for our project; it lives at [hathix/tweet-party-classifier](https://github.com/hathix/tweet-party-classifier). So far we have scaffolded out a Django app that can be run by following instructions in the [README](https://github.com/hathix/tweet-party-classifier/blob/master/README.md).
 
+## Advanced stuff
+
 Based on rate of successful categorization, we can further assess whether we will need additional classification methods or variations of current feature evalutations.
 
 ## Timeline

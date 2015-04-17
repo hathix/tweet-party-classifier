@@ -8,7 +8,7 @@ This project uses [Python 2](https://python.org).
 
 ```
 $ git clone https://github.com/hathix/tweet-party-classifier.git
-$ cd $_
+$ cd tweet-party-classifier
 $ sudo pip install -r requirements.txt
 $ python
 > import nltk
