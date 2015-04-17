@@ -72,6 +72,7 @@ The classifier is based on the Naive Bayes algorithm: the probabilty of a tweet 
 |                              P(features)
 
 ```
+
 The 'naive' assumption is then made that all features are independent, given the label:
 
 ```
@@ -82,7 +83,7 @@ The 'naive' assumption is then made that all features are independent, given the
 ```
 
 Rather than computing P(features) explicitly, the algorithm
-calculates the denominator for each label, and then normalizes them so that they
+calculates the denominator for each label and then normalizes them so that they
 sum to one:
 
 ```
@@ -97,10 +98,12 @@ In order to find the most common words in the population of training data that a
 
 ```
 from nltk.probability import FreqDist, DictionaryProbDist
+
 ```
 
-- Collect_all_words method returns an array of all words from the training tweets
-- The array is passed to Identify_top_words method to identify the most frequent words
+- Collect_all_words method to return an array of all words from the training tweets
+- The array is then passed to Identify_top_words method to identify the most frequent words
+- nltk.FreqDist class : hash, sort the keys by their corresponding values, or counts
 - We will obtain the top ### words with [:###]
 
 ```
@@ -112,11 +115,24 @@ def collect_all_words(self, items):
 		return all_words
 
 def identify_top_words(self, all_words):
-	freq_dist = nltk.FreqDist(w.lower() for w in all_words)
-	return freq_dist.keys()[:###]
+    freq_dist = nltk.FreqDist(w.lower() for w in all_words)
+    return freq_dist.keys()[:###]
 ```
 
-- We will obtain the features of each tweet
+- Get the features for each tweet
+- Run array of all_words to reduce to a smaller set object to eliminate duplicate words
+- Iterate through top_words and compare to this set for presence or absence, a hash of ### Booleans is returned
+
+```
+def features(self, top_words):
+    word_set = set(self.all_words)
+    features = {}
+    for w in top_words:
+    features["w_%s" % w] = (w in word_set)
+    return features
+
+```
+
 - Collect the training set of tweets and their individual features and pass them to algorithm
 - Once the classifier is trained, we will iterate through the set of tweets that remain to be classified. The classifier will guess the category for each item.
 
@@ -135,6 +151,8 @@ print(classifier.accuracy(test_set))
 ## Version Control
 
 We are using GitHub for our project; it lives at [hathix/tweet-party-classifier](https://github.com/hathix/tweet-party-classifier). So far we have scaffolded out a Django app that can be run by following instructions in the [README](https://github.com/hathix/tweet-party-classifier/blob/master/README.md).
+
+Based on rate of successful categorization, we can further assess whether we will need additional classification methods or variations of current feature evalutations.
 
 ## Timeline
 Writeup due Friday, April 17

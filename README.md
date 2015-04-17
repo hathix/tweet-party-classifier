@@ -7,7 +7,9 @@ Neel Mehta, Ajay Nathan, Saranya Vijayakumar, Sam Lam.
 This project uses [Python 2](https://python.org).
 
 ```
-$ pip install -r requirements.txt
+$ git clone https://github.com/hathix/tweet-party-classifier.git
+$ cd $_
+$ sudo pip install -r requirements.txt
 $ python
 > import nltk
 > nltk.download() # follow graphical installer
