@@ -139,12 +139,14 @@ We are using GitHub for our project; it lives at [hathix/tweet-party-classifier]
 ## Timeline
 Writeup due Friday, April 17
 
+Starting Friday, April 17:
+
 - Create front end - Django app
 - Write extract function
 - Figure out how to get tweets from Quorum (data procurement)
 - Write classifier - train and test
 
-Friday, April 24
+Starting Friday, April 24:
 
 - Finish writing Naive Bayes classifier
 - Interface
