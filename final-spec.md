@@ -1,5 +1,5 @@
 # Tweet-Party Classifier
-Neel Mehta, Ajay Nathan, Saranya Vijayakumar, Samuel Lam.
+**Neel Mehta, Ajay Nathan, Saranya Vijayakumar, Samuel Lam.**
 
 ## About
 Uses the Naive Bayes Classifier to predict the political party of the author of a Tweet. Uses data from [Quorum Analytics](https://quorum.us).
@@ -41,6 +41,8 @@ We could simply have represented a Tweet as a tuple, but to allow for an initial
   * Randomly splits the given Tweet list into a training and a testing list.
 * `extract`(str) : bool list
   * Uses NLTK to remove English stopwords, remove inflections, and return a frequency list for the top remaining words (if word *i* is in the Tweet, position *i* in the list will be true.)
+ 
+These are largely utility functions.
 
 ### Process
 
