@@ -59,7 +59,7 @@ The classifier is based on the Naive Bayes algorithm: the probabilty of a tweet 
 |  P(label|features) = ------------------------------
 |                              P(features)
 
-``
+```
 The 'naive' assumption is then made that all features are independent, given the label:
 
 ```
@@ -67,7 +67,7 @@ The 'naive' assumption is then made that all features are independent, given the
 |  P(label|features) = --------------------------------------------
 |                                         P(features)
 
-``
+```
 
 Rather than computing P(features) explicitly, the algorithm
 calculates the denominator for each label, and then normalizes them so that they
@@ -79,14 +79,14 @@ sum to one:
 |  P(label|features) = --------------------------------------------
 |                        SUM[l]( P(l) * P(f1|l) * ... * P(fn|l) )
 
-``
+```
 
 In order to find the most common words in the population of training data that are not stop words, this project utilizes NLTK (as iterated above): nltk.NaiveBayesClassifier with the class nltk.probability.FreqDist to identify top words.
 
 ```
 from nltk.probability import FreqDist, DictionaryProbDist
 from nltk.classify.api import ClassifierI
-``
+```
 
 - Collect_all_words method returns an array of all words from the training tweets
 - The array is passed to Identify_top_words method to identify the most frequent words
@@ -94,16 +94,16 @@ from nltk.classify.api import ClassifierI
 
 ```
 def collect_all_words(self, items):
-all_words = []
-for item in items:
-for w in item.all_words:
-words.append(w)
-return all_words
+	all_words = []
+	for item in items:
+	for w in item.all_words:
+		words.append(w)
+		return all_words
 
 def identify_top_words(self, all_words):
-freq_dist = nltk.FreqDist(w.lower() for w in all_words)
-return freq_dist.keys()[:###]
-``
+	freq_dist = nltk.FreqDist(w.lower() for w in all_words)
+	return freq_dist.keys()[:###]
+```
 
 - We will obtain the features of each tweet
 - Collect the training set of tweets and their individual features and pass them to algorithm
@@ -111,29 +111,31 @@ return freq_dist.keys()[:###]
 
 ```
 for item in tweets_to_classify:
-features = item.features(top_words)
-category = classifier.classify()
-``
+	features = item.features(top_words)
+	category = classifier.classify()
+```
 
 For accuracy evaluation we can use nltk.classify.util.accuracy with the test set.
 
 ```
 print(nltk.classify.accuracy(classifier, test_set))
-``
+```
 
 ## Timeline
 Writeup due Friday, April 17
+
 - Create front end - Django app
 - Write extract function
 - Figure out how to get tweets from Quorum (data procurement)
 - Write classifier - train and test
 
 Friday, April 24
+
 - Finish writing Naive Bayes classifier
 - Interface
 - Helper functions (like accuracy calculation)
 - Finish front end
-- "Reach: goals
+- "Reach" goals
 - testing
 
 Due: May 1
