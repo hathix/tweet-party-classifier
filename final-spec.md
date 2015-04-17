@@ -19,30 +19,40 @@ We story party using an Enum instead of a string; it is a useful abstraction tha
 ### Objects
 
 * Tweet
-  * party : Party
-  * name : str
-  * text : str
-  * freqlist : bool list
-  * __init__(party : Party, name : str, text : str)
+  * `party` : Party
+  * `name` : str
+  * `text` : str
+  * `freqlist` : bool list
+  * `__init__`(party : Party, name : str, text : str)
     * Generates the frequency list by running extract(text)
 * Classifier (implementation of Naive Bayes Classifier)
-  * train(Tweet list) : None
-  * classify(str) : Party
+  * `train`(Tweet list) : None
+  * `classify`(str) : Party
     * Guesses the party of the author of the given text (could be Tweet or other writing)
-  * accuracy(Tweet list) : float
+  * `accuracy`(Tweet list) : float
     * Runs classify on the text of every Tweet and returns the percent of correct party classifications.
 
 We could simply have represented a Tweet as a tuple, but to allow for an initializer that auto-generates the frequency list out of the Tweet text (and to allow for better abstraction), we use a Tweet object. The Classifier object lets us encapsulate the state of the Bayes Classifier.
 
 ### Functions
-* get_tweets() : Tweet list
+* `get_tweets`() : Tweet list
   * Reads in raw Tweet data and constructs a Tweet object out of each. Data acquisition under construction by Ajay.
-* partition_tweets(Tweet list) : (Tweet list, Tweet list)
+* `partition_tweets`(Tweet list) : (Tweet list, Tweet list)
   * Randomly splits the given Tweet list into a training and a testing list.
-* extract(str) : bool list
-  * Uses NLTK to remove English stopwords, 
+* `extract`(str) : bool list
+  * Uses NLTK to remove English stopwords, remove inflections, and return a frequency list for the top remaining words (if word *i* is in the Tweet, position *i* in the list will be true.)
 
 ### Process
+
+We simple get the Tweets, train the classifier using a subset of them, and test the classifier using the remainder.
+
+```
+tweets = get_tweets()
+(train, test) = partition(tweets)
+classifier = new Classifier()
+classifier.train(train)
+print(classifier.accuracy(test))
+```
 
 ## Technical Specifications
 This project uses Python 2 and Django. Check the [Readme](https://github.com/hathix/tweet-party-classifier/blob/master/README.md) for instructions on running on your own machine.
