@@ -125,11 +125,11 @@ def identify_top_words(self, all_words):
 
 ```
 def features(self, top_words):
-word_set = set(self.all_words)
-features = {}
-for w in top_words:
-features["w_%s" % w] = (w in word_set)
-return features
+    word_set = set(self.all_words)
+    features = {}
+    for w in top_words:
+    features["w_%s" % w] = (w in word_set)
+    return features
 
 ```
 
