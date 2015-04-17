@@ -12,13 +12,13 @@ Neel Mehta, Ajay Nathan, Saranya Vijayakumar, Sam Lam.
 
 ## Getting started
 
-This project uses [Python 3](https://python.org).
+This project uses [Python 2](https://python.org).
 
 ```
-$ pip3 install -r requirements.txt
-$ python3
+$ pip install -r requirements.txt
+$ python
 > import nltk
 > nltk.download() # follow graphical installer
-$ python3 server.py
-$ open http://127.0.0.1:5000/
+$ python tpclassifier/manage.py runserver
+$ open http://127.0.0.1:8000/
 ```
