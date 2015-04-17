@@ -25,8 +25,10 @@ The classifier is based on the Naive Bayes algorithm: the probabilty of a tweet 
 |  P(label|features) = ------------------------------
 |                              P(features)
 
+``
 The 'naive' assumption is then made that all features are independent, given the label:
 
+```
 |                       P(label) * P(f1|label) * ... * P(fn|label)
 |  P(label|features) = --------------------------------------------
 |                                         P(features)
@@ -50,7 +52,6 @@ In order to find the most common words in the population of training data that a
 ```
 from nltk.probability import FreqDist, DictionaryProbDist
 from nltk.classify.api import ClassifierI
-
 ``
 
 - Collect_all_words method returns an array of all words from the training tweets
