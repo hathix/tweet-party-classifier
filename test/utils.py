@@ -18,6 +18,7 @@ def extract(text):
     # normalize by stemming (e.g. turn "running" into "run")
     stemmer = nltk.stem.snowball.EnglishStemmer()
     normalized = [stemmer.stem(word) for word in content_words_collapsed]
+    # TODO STILL BUGS HERE! e.g. "remember" => "rememb" (b/c nature of stemmer)
     return normalized
 
 print(extract("Remember when I broke you down to tears. I gave you a tear. So I bet my life on you. This could be paradise. We'd be wondering if you could come."))
