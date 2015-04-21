@@ -36,7 +36,7 @@ def most_common_words(corpus, n):
     dist = nltk.FreqDist(all_words)
     # in format (word, frequency)
     most_common_tuples = dist.most_common(n)
-    most_common = [word for (word, _) in most_common_tuples]
+    most_common = [pair[0] for pair in most_common_tuples]
     return most_common
 
 """
@@ -66,6 +66,5 @@ sample = "Paradise but I give up"
 sample2 = "I'm just a believer"
 
 lis = most_common_words(corpus, 2)
-print(lis)
 print(freq_list(sample, lis))
 print(freq_list(sample2, lis))
