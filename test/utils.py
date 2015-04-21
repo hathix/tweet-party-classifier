@@ -1,25 +1,71 @@
 import nltk
 import re
 
+stopwords = set(nltk.corpus.stopwords.words("english"))
+word_re = re.compile("\w+")
+stemmer = nltk.stem.snowball.EnglishStemmer()
+
 """
-    Converts the given text into a frequency list of the most common English words
-    that aren't stop words.
+    Converts the given raw text into the basic (stemmed) forms of all the non-stopword
+    English words contained therein.
+
+    extract("I am running") = ["run"]
+    extract("This could be paradise") = ["could", "paradis"]
 """
 def extract(text):
-    lower = text.lower()
-    all_words = nltk.word_tokenize(lower)
+    tokens = nltk.word_tokenize(text)
+    words = [word.lower() for word in tokens]
     # remove stopwords
-    stopwords = nltk.corpus.stopwords.words("english")
-    without_stopwords = [word for word in all_words if word not in stopwords]
+    without_stopwords = [word for word in words if word not in stopwords]
     # filter out non-words
-    word_re = re.compile("\w+");
     content_words = [word_re.match(word) for word in without_stopwords]
     content_words_collapsed = [x.group() for x in content_words if x != None]
     # normalize by stemming (e.g. turn "running" into "run")
-    stemmer = nltk.stem.snowball.EnglishStemmer()
     normalized = [stemmer.stem(word) for word in content_words_collapsed]
-    # TODO STILL BUGS HERE! e.g. "remember" => "rememb" (b/c nature of stemmer)
-    # wait what if you just stemmed all the words in the top 1000 too? that'd ensure consistency
     return normalized
 
-print(extract("Remember when I broke you down to tears. I gave you a tear. So I bet my life on you. This could be paradise. We'd be wondering if you could come."))
+"""
+    Returns the n most common words in the given corpus of text.
+
+    frequency_distribution(["a","b a","c c a"], 2) = ["a", "c"]
+"""
+def most_common_words(corpus, n):
+    all_words = []
+    for text in corpus:
+        all_words.extend(extract(text))
+    dist = nltk.FreqDist(all_words)
+    # in format (word, frequency)
+    most_common_tuples = dist.most_common(n)
+    most_common = [word for (word, _) in most_common_tuples]
+    return most_common
+
+"""
+    For every word in word_list, sets the corresponding boolean flag in the output
+    to true if the word is in the given sample text and false otherwise.
+
+    freq_list("a b c", ["a", "d"]) = [true, false]
+
+"""
+def freq_list(sample, word_list):
+    sample_words = set(extract(sample))
+    word_set = set(word_list)
+    flags = [word in sample_words for word in word_set]
+    return flags
+
+# Here be testing
+
+corpus = [
+    "This could be paradise",
+    "Paradise? What's that?",
+    "Dreams of paradise",
+    "Welcome to Paradise",
+    "I'm just a believer",
+    "Believe in yourself"
+]
+sample = "Paradise but I give up"
+sample2 = "I'm just a believer"
+
+lis = most_common_words(corpus, 2)
+print(lis)
+print(freq_list(sample, lis))
+print(freq_list(sample2, lis))
