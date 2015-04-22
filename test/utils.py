@@ -40,16 +40,16 @@ def most_common_words(corpus, n):
     return most_common
 
 """
-    For every word in word_list, sets the corresponding boolean flag in the output
-    to true if the word is in the given sample text and false otherwise.
+    For every word in word_list, sets the corresponding flag in the output
+    to 1 if the word is in the given sample text and 0 otherwise.
 
-    freq_list("a b c", ["a", "d"]) = [true, false]
+    freq_list("a b c", ["a", "d"]) = [1, 0]
 
 """
 def freq_list(sample, word_list):
     sample_words = set(extract(sample))
     word_set = set(word_list)
-    flags = [word in sample_words for word in word_set]
+    flags = [1 if word in sample_words else 0 for word in word_set]
     return flags
 
 # Here be testing
