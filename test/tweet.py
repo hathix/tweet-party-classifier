@@ -19,4 +19,4 @@ class Tweet:
         Builds this Tweet's frequency list given a list of words to watch for.
     """
     def load_freq_list(self, word_list):
-        self.freq_list = freq_list(self.text, word_list)
+        self.freq_list = utils.freq_list(self.text, word_list)

@@ -51,20 +51,3 @@ def freq_list(sample, word_list):
     word_set = set(word_list)
     flags = [1 if word in sample_words else 0 for word in word_set]
     return flags
-
-# Here be testing
-
-corpus = [
-    "This could be paradise",
-    "Paradise? What's that?",
-    "Dreams of paradise",
-    "Welcome to Paradise",
-    "I'm just a believer",
-    "Believe in yourself"
-]
-sample = "Paradise but I give up"
-sample2 = "I'm just a believer"
-
-lis = most_common_words(corpus, 2)
-print(freq_list(sample, lis))
-print(freq_list(sample2, lis))
