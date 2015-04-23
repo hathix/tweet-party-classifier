@@ -1,32 +1,38 @@
-import party
+from party import Party
 import tweet
 import utils
 
-parties = [Party.Republican, Party.Democrat]
-tweets_by_party = [[tweet for tweet in tweets if tweet.party == party] for party in parties]
-# P(y = R) = len(tweets_by_party[Party.Republican]) / len(tweets)
+class Classifier:
 
-def prob(party, tweet):
-    # numerator
-    party_tweets = tweets_by_party[party]
-    prob_of_party = len(party_tweets) / len(tweets)
-    feature_probs = 
-    numerator_probs = []
-    for i in xrange(0, len(tweet.freq_list)):
-        to_search = tweets_by_party[party]
-        numerator_probs[i] = len([comp for comp in to_search if comp.freq_list[i] == tweet.freq_list[i]]) / len(to_search)
-    # todo finish
+    def __init__(self, training_tweets):
+        self.tweets = training_tweets
+        self.parties = [Party.Republican, Party.Democrat]
+        self.tweets_by_party = {}
+        for party in self.parties:
+            self.tweets_by_party[party] = filter(lambda tweet: tweet.party == party, self.tweets)
 
-def bayes(party, party_tweets, all_tweets, sample_tweet):
-    prob_of_party = len(party_tweets) / len(all_tweets)
-    feature_probs = []
-    # iterate over every word (boolean flag)
-    for i in xrange(0, len(sample_tweet.freq_list)):
-        # P(A|B) = P(B|A) * P(A) / P(B)
-        # P(match|party) = P(party|match) * P(match) / P(party)
-        #                = P(match)
-        # because we're only looking at the party's tweets
-        matching_fn = lambda test_tweet: test_tweet.freq_list[i] == sample_tweet.freq_list[i]
-        matching_tweets = filter(matchin_fn, party_tweets)
-        probability = len(matching_tweets) / len(party_tweets)
-        feature_probs.append(probability)
+    def test(self, sample_tweet, party_guess):
+        numerator = self.bayes(party_guess, self.tweets_by_party[party_guess], sample_tweet)
+        denominator_list = [self.bayes(party, self.tweets_by_party[party], sample_tweet) for party in self.parties]
+        denominator = sum(denominator_list)
+        if denominator == 0:
+            return 0
+        else:
+            return numerator / denominator
+
+    # P(y = party) * product(P(x_i = u_i | y = party))
+    def bayes(self, party, party_tweets, sample_tweet):
+        prob_of_party = len(party_tweets) / len(self.tweets)
+        feature_probs = []
+        # iterate over every word (boolean flag)
+        for i in xrange(0, len(sample_tweet.freq_list)):
+            # P(A|B) = P(B|A) * P(A) / P(B)
+            # P(match|party) = P(party|match) * P(match) / P(party)
+            #                = P(match)
+            # because we're only looking at the party's tweets
+            matching_fn = lambda test_tweet: test_tweet.freq_list[i] == sample_tweet.freq_list[i]
+            matching_tweets = filter(matching_fn, party_tweets)
+            probability = len(matching_tweets) / len(party_tweets)
+            feature_probs.append(probability)
+        combined = prob_of_party * utils.product(feature_probs)
+        return combined

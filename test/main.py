@@ -1,7 +1,7 @@
 import utils
 from tweet import Tweet
 from party import Party
-import classifier
+from classifier import Classifier
 
 # Here be testing
 
@@ -34,3 +34,7 @@ print(words)
 [t.load_freq_list(words) for t in tweets]
 for t in tweets:
     print(t.freq_list)
+
+classifier = Classifier(tweets)
+print(classifier.test(tweets[0], Party.Republican))
+print(classifier.test(tweets[0], Party.Democrat))
