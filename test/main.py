@@ -25,7 +25,7 @@ print(freq_list(sample2, lis))
 # todo keep the @'s around
 tweets = [
     Tweet(Party.Democrat, "B. Obama", "Economy economy economy jobs jobs jobs healthcare"),
-    Tweet(Party.Republican, "M. Romney", "Jobs jobs jobs guns")
+    Tweet(Party.Republican, "M. Romney", "Economy economy economy economy Jobs jobs jobs guns")
 ]
 cat = "Economy economy healthcare guns"
 
