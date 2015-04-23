@@ -5,6 +5,9 @@ import utils
 
 class Classifier:
 
+    """
+        Loads the classifier with given training data and a list of words to watch for.
+    """
     def __init__(self, training_tweets, word_list):
         self.tweets = training_tweets
         self.word_list = word_list
@@ -13,6 +16,10 @@ class Classifier:
         for party in self.parties:
             self.tweets_by_party[party] = filter(lambda tweet: tweet.party == party, self.tweets)
 
+    """
+        Runs the Naive Bayes classifier to determine the probability that the given text
+        was authored by a member of the given party.
+    """
     def test(self, text, party_guess):
         freq_list = utils.freq_list(text, self.word_list)
         numerator = self.bayes(party_guess, self.tweets_by_party[party_guess], freq_list)
@@ -23,6 +30,17 @@ class Classifier:
         else:
             return numerator / denominator
 
+    """
+        Private helper function. Calculates
+            P(y = party) * product(P(x_i = u_i | y = party))
+        where u_i is the presence or absence of word i in the sample frequency list.
+
+        Parameters:
+            party : Party
+            party_tweets : Tweet list       Tweets published by the given party.
+            sample_freq_list : int list     The frequency list for a chunk of text.
+        Returns: float
+    """
     # P(y = party) * product(P(x_i = u_i | y = party))
     def bayes(self, party, party_tweets, sample_freq_list):
         prob_of_party = len(party_tweets) / len(self.tweets)
