@@ -10,7 +10,7 @@ def prob(party, tweet):
     # numerator
     party_tweets = tweets_by_party[party]
     prob_of_party = len(party_tweets) / len(tweets)
-    feature_probs = 
+    feature_probs =
     numerator_probs = []
     for i in xrange(0, len(tweet.freq_list)):
         to_search = tweets_by_party[party]
@@ -30,3 +30,5 @@ def bayes(party, party_tweets, all_tweets, sample_tweet):
         matching_tweets = filter(matchin_fn, party_tweets)
         probability = len(matching_tweets) / len(party_tweets)
         feature_probs.append(probability)
+
+
