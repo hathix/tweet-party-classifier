@@ -1,0 +1,11 @@
+1. Go to tpclassifier/tweets/views.py
+2. Use tweets (see the file)
+3. Set accuracy to what you want displayed (see file). Will update frontend later
+4. cd to tpclassifier/
+5. Run python manage.py run server
+6. Go to localhost:8000/tweets
+7. Ask me if there are any bugs/if you have any questions
+
+<3 Ajay
+
+Note: testing db only has 1000 tweets in it. we can add more later
