@@ -37,5 +37,6 @@ class Classifier:
             matching_tweets = filter(matching_fn, party_tweets)
             probability = len(matching_tweets) / len(party_tweets)
             feature_probs.append(probability)
+        print(feature_probs)
         combined = prob_of_party * utils.product(feature_probs)
         return combined
