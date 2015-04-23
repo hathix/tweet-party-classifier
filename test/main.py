@@ -25,7 +25,8 @@ print(freq_list(sample2, lis))
 # todo keep the @'s around
 tweets = [
     Tweet(Party.Democrat, "B. Obama", "Economy economy economy jobs jobs jobs healthcare"),
-    Tweet(Party.Republican, "M. Romney", "Economy economy economy economy Jobs jobs jobs guns")
+    Tweet(Party.Republican, "M. Romney", "Jobs jobs jobs guns"),
+    Tweet(Party.Republican, "J. McCain", "...")
 ]
 cat = "Economy economy healthcare guns"
 
@@ -35,6 +36,6 @@ print(words)
 for t in tweets:
     print(t.freq_list)
 
-classifier = Classifier(tweets)
-print(classifier.test(tweets[0], Party.Republican))
-print(classifier.test(tweets[0], Party.Democrat))
+classifier = Classifier(tweets, words)
+print(classifier.test(cat, Party.Republican))
+print(classifier.test(cat, Party.Democrat))
