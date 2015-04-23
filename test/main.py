@@ -42,3 +42,6 @@ if classifier.predict(cat) == Party.Republican:
     print "Republican"
 else:
     print "Democrat"
+
+testr = Tweet(Party.Democrat, "A. Traitor", "Jobs guns guns guns guns money")
+print(classifier.accuracy([testr]))

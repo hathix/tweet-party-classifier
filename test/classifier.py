@@ -26,6 +26,17 @@ class Classifier:
         return most_likely_pair[0]
 
     """
+        Returns a float representing the fraction of the time that the classifier
+        correctly predicts the tweets' parties.
+    """
+    def accuracy(self, tweet_list):
+        correct = 0
+        for tweet in tweet_list:
+            if self.predict(tweet.text) == tweet.party:
+                correct += 1
+        return correct / len(tweet_list)
+
+    """
         Runs the Naive Bayes classifier to determine the probability that the given text
         was authored by a member of the given party.
     """
