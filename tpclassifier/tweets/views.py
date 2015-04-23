@@ -10,7 +10,13 @@ def index(request):
 
 	#to use simple frontend, set accuracy to what you want displayed
 	accuracy = 0
+
+	num_tweets = Tweet.objects.count()
+
+	# gets name: raw_text of random tweet
+	random_tweet = Tweet.objects.order_by('?')[0]
+	random_tweet_display = random_tweet.name + ": " + random_tweet.raw_text
 	
-	# sends accuracy to frontend
-	context = {"accuracy": accuracy}
+	# sends accuracy, num_tweets, random_tweet_display to frontend
+	context = {"accuracy": accuracy, "num_tweets": num_tweets, "random_tweet_display": random_tweet_display}
 	return render(request, "tweets/index.html", context)
