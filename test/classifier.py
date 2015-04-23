@@ -17,6 +17,15 @@ class Classifier:
             self.tweets_by_party[party] = filter(lambda tweet: tweet.party == party, self.tweets)
 
     """
+        Predicts the party that was most likely to have authored the given text.
+    """
+    def predict(self, text):
+        probabilities = [(party, self.test(text, party)) for party in self.parties]
+        sorted_pairs = sorted(probabilities, key=lambda pair: pair[1])
+        most_likely_pair = sorted_pairs[-1]
+        return most_likely_pair[0]
+
+    """
         Runs the Naive Bayes classifier to determine the probability that the given text
         was authored by a member of the given party.
     """

@@ -29,7 +29,7 @@ tweets = [
     Tweet(Party.Republican, "M. Romney", "Jobs jobs jobs guns"),
     Tweet(Party.Republican, "J. McCain", "...")
 ]
-cat = "Economy economy healthcare guns"
+cat = "Economy economy jobs healthcare guns"
 
 words = utils.most_common_words([t.text for t in tweets], 2)
 [t.load_freq_list(words) for t in tweets]
@@ -37,3 +37,8 @@ words = utils.most_common_words([t.text for t in tweets], 2)
 classifier = Classifier(tweets, words)
 print(classifier.test(cat, Party.Republican))
 print(classifier.test(cat, Party.Democrat))
+
+if classifier.predict(cat) == Party.Republican:
+    print "Republican"
+else:
+    print "Democrat"
