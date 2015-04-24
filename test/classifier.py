@@ -1,11 +1,11 @@
-import party
+from __future__ import division
+from party import Party
 import tweet
 import utils
 
-parties = [Party.Republican, Party.Democrat]
-tweets_by_party = [[tweet for tweet in tweets if tweet.party == party] for party in parties]
-# P(y = R) = len(tweets_by_party[Party.Republican]) / len(tweets)
+class Classifier:
 
+<<<<<<< HEAD
 def prob(party, tweet):
     # numerator
     party_tweets = tweets_by_party[party]
@@ -32,3 +32,39 @@ def bayes(party, party_tweets, all_tweets, sample_tweet):
         feature_probs.append(probability)
 
 
+=======
+    def __init__(self, training_tweets, word_list):
+        self.tweets = training_tweets
+        self.word_list = word_list
+        self.parties = [Party.Republican, Party.Democrat]
+        self.tweets_by_party = {}
+        for party in self.parties:
+            self.tweets_by_party[party] = filter(lambda tweet: tweet.party == party, self.tweets)
+
+    def test(self, text, party_guess):
+        freq_list = utils.freq_list(text, self.word_list)
+        numerator = self.bayes(party_guess, self.tweets_by_party[party_guess], freq_list)
+        denominator_list = [self.bayes(party, self.tweets_by_party[party], freq_list) for party in self.parties]
+        denominator = sum(denominator_list)
+        if denominator == 0:
+            return None
+        else:
+            return numerator / denominator
+
+    # P(y = party) * product(P(x_i = u_i | y = party))
+    def bayes(self, party, party_tweets, sample_freq_list):
+        prob_of_party = len(party_tweets) / len(self.tweets)
+        feature_probs = []
+        # iterate over every word (boolean flag)
+        for i in xrange(0, len(sample_freq_list)):
+            # P(A|B) = P(B|A) * P(A) / P(B)
+            # P(match|party) = P(party|match) * P(match) / P(party)
+            #                = P(match)
+            # because we're only looking at the party's tweets
+            matching_fn = lambda test_tweet: test_tweet.freq_list[i] == sample_freq_list[i]
+            matching_tweets = filter(matching_fn, party_tweets)
+            probability = len(matching_tweets) / len(party_tweets)
+            feature_probs.append(probability)
+        combined = prob_of_party * utils.product(feature_probs)
+        return combined
+>>>>>>> b4f29c099b8b9b4564b3feb1786b017f19f3d1fc

@@ -1,5 +1,6 @@
 import nltk
 import re
+import operator
 
 stopwords = set(nltk.corpus.stopwords.words("english"))
 word_re = re.compile("\w+")
@@ -51,3 +52,6 @@ def freq_list(sample, word_list):
     word_set = set(word_list)
     flags = [1 if word in sample_words else 0 for word in word_set]
     return flags
+
+def product(nums):
+    return reduce(operator.mul, nums, 1)
