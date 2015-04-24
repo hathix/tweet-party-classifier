@@ -1,6 +1,8 @@
+from __future__ import division
 import nltk
 import re
 import operator
+import random
 
 stopwords = set(nltk.corpus.stopwords.words("english"))
 word_re = re.compile("\w+")
@@ -45,7 +47,6 @@ def most_common_words(corpus, n):
     to 1 if the word is in the given sample text and 0 otherwise.
 
     freq_list("a b c", ["a", "d"]) = [1, 0]
-
 """
 def freq_list(sample, word_list):
     sample_words = set(extract(sample))
@@ -53,5 +54,21 @@ def freq_list(sample, word_list):
     flags = [1 if word in sample_words else 0 for word in word_set]
     return flags
 
+"""
+    product([1,2,3]) = 6
+"""
 def product(nums):
     return reduce(operator.mul, nums, 1)
+
+"""
+    Randomly splits a list of data items into a training set and a test set.
+"""
+def partition(data):
+    train_ratio = 2 / 3
+
+    shuffled = random.sample(data, len(data))
+    # first (len * train_ratio) elements are training, rest are testing.
+    split_index = int(len(shuffled) * train_ratio)
+    training = shuffled[:split_index]
+    testing = shuffled[split_index:]
+    return (training, testing)
