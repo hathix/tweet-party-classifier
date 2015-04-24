@@ -4,8 +4,6 @@
 4. cd to tpclassifier/
 5. Run python manage.py run server
 6. Go to localhost:8000/tweets
-7. Ask me if there are any bugs/if you have any questions
+7. Tell me if there are any bugs/if you have any questions
 
 <3 Ajay
-
-Note: testing db only has 1000 tweets in it. we can add more later

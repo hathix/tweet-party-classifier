@@ -10,7 +10,7 @@ def index(request):
 	# ex. tweets[0]["party"] gets 0 if author of first tweet is a Democrat, etc.
 	raw_tweets = Tweet.objects.all().values()
 
-	#to use simple frontend, set accuracy to what you want displayed
+	# to use simple frontend, set accuracy to what you want displayed
 	tweets = main.parse_tweets(raw_tweets)
 	training_tweets, testing_tweets = utils.partition(tweets)
 	classifier = main.get_classifier(training_tweets)

@@ -14,5 +14,8 @@ $ python
 > import nltk
 > nltk.download() # follow graphical installer
 $ python tpclassifier/manage.py runserver
-$ open http://127.0.0.1:8000/
+$ open http://localhost:8000/tweets
 ```
+
+### Accuracy
+The accuracy of our classifier might seem low, but it will increase as we add more training data.

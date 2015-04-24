@@ -5,10 +5,8 @@ import csv
 # from tweet models import Tweet
 
 # data in this file must be in format: tweet_id, raw_text, party, name
-PATH = "/Users/Ajay/Downloads/tweets.csv"
+PATH = "/Users/Ajay/Downloads/CS51project/tweets.csv"
 NUM_TWEETS = 1000
-
-tweets = []
 
 reader = csv.reader(open(PATH, 'rU'))
 
@@ -24,14 +22,11 @@ for row in reader:
 			temp = 1
 		else:
 			temp = 2
-		# creates Tweet object for Democrats and Republicans only and appends to tweets
+		# creates and saves Tweet object for Democrats and Republicans only
 		if temp != 2:
-			tweets.append(Tweet(tweet_id = int(row[0]), raw_text = row[1], party = temp, name = row[3]))
+			tweet = Tweet(tweet_id = int(row[0]), raw_text = row[1], party = temp, name = row[3])
+			tweet.save()
 
 		ctr = ctr + 1
-
-# adds all Tweet objects in tweets to db
-for tweet in tweets:
-	tweet.save()
 
 # for the sake of space, I only added the first NUM_TWEETS tweets to the testing db

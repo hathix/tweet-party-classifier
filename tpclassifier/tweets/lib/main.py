@@ -3,8 +3,6 @@ from tweet import Tweet
 from party import Party
 from classifier import Classifier
 
-# Here be testing
-
 '''
 corpus = [
     "This could be paradise",

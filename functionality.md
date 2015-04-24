@@ -2,7 +2,7 @@
 
 * We set up Flask and Heroku, and picked the Naive Bayes classifier as our Machine learning algorithm. 
 
-* We obtained the database of tweets from Quorum. We also wrote the code to build a frequency list of words found in each tweet, as well as removes common words. extract (in utils.py) extracts the stemmed form of non-basic words. 
+* We obtained the database of tweets from Quorum Analytics. We are using Django to manage our database. We also wrote the code to build a frequency list of words found in each tweet, as well as removes common words. extract (in utils.py) extracts the stemmed form of non-basic words.
 
 * The class Tweet is defined with party, name, text, and freq_list. 
 
@@ -10,8 +10,8 @@
 
 ###Problems:
 
-* We had a problem finding the right algorithm, since we are using a list of booleans. Naive Bayes is not particularly built for a list of bools (and is normally used with something like heights or polling data. (see http://cs109.github.io/2014/pages/lectures/lecture14-bayesian-statistics.html#/) 
-
+* We had a problem finding the right algorithm, since we are using a list of booleans. Naive Bayes is not particularly built for a list of bools (and is normally used with something like heights or polling data. (see http://cs109.github.io/2014/pages/lectures/lecture14-bayesian-statistics.html#/)
+* We are still having trouble pushing our large database to Git. Currently, we are using a smaller database to test our algorithm.
 * We changed our project idea slightly after we met with Stefan. 
 
 ###Teamwork:
