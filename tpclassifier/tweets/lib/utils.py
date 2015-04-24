@@ -1,9 +1,15 @@
+from __future__ import division
 import nltk
 import re
 import operator
+import random
 
-stopwords = set(nltk.corpus.stopwords.words("english"))
-word_re = re.compile("\w+")
+# use normal english stopwords plus custom excluded twitter stopwords
+english_stopwords = set(nltk.corpus.stopwords.words("english"))
+twitter_stopwords = set(['http', 'https', 'rt', 'amp'])
+stopwords = english_stopwords.union(twitter_stopwords)
+
+word_re = re.compile("[A-Za-z_]+")
 stemmer = nltk.stem.snowball.EnglishStemmer()
 
 """
@@ -45,7 +51,6 @@ def most_common_words(corpus, n):
     to 1 if the word is in the given sample text and 0 otherwise.
 
     freq_list("a b c", ["a", "d"]) = [1, 0]
-
 """
 def freq_list(sample, word_list):
     sample_words = set(extract(sample))
@@ -53,5 +58,21 @@ def freq_list(sample, word_list):
     flags = [1 if word in sample_words else 0 for word in word_set]
     return flags
 
+"""
+    product([1,2,3]) = 6
+"""
 def product(nums):
     return reduce(operator.mul, nums, 1)
+
+"""
+    Randomly splits a list of data items into a training set and a test set.
+"""
+def partition(data):
+    train_ratio = 0.80
+
+    shuffled = random.sample(data, len(data))
+    # first (len * train_ratio) elements are training, rest are testing.
+    split_index = int(len(shuffled) * train_ratio)
+    training = shuffled[:split_index]
+    testing = shuffled[split_index:]
+    return (training, testing)

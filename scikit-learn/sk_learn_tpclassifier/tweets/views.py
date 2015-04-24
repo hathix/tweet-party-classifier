@@ -1,20 +1,15 @@
 from django.shortcuts import render
 
 from .models import Tweet
-import lib.main as main
-import lib.utils as utils
 
 def index(request):
 	# list of tweets. each tweet is a dictionary with keys tweet_id, raw_text, name, party, etc.
 	# ex. tweets[0]["raw_text"] gets the raw text of the first tweet
 	# ex. tweets[0]["party"] gets 0 if author of first tweet is a Democrat, etc.
-	raw_tweets = Tweet.objects.all().values()
+	tweets = Tweet.objects.all().values()
 
 	#to use simple frontend, set accuracy to what you want displayed
-	tweets = main.parse_tweets(raw_tweets)
-	training_tweets, testing_tweets = utils.partition(tweets)
-	classifier = main.get_classifier(training_tweets)
-	accuracy = classifier.accuracy(testing_tweets)
+	accuracy = 0
 
 	num_tweets = Tweet.objects.count()
 

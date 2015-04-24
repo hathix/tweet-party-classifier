@@ -28,7 +28,7 @@ class Classifier:
 
     """
         Returns a float representing the fraction of the time that the classifier
-        correctly predicts the tweets' parties.
+        correctly predicts the given testing tweets' parties.
     """
     def accuracy(self, tweet_list):
         correct = 0
