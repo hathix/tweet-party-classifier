@@ -1,8 +1,8 @@
 from sklearn.naive_bayes import BernoulliNB
 from sklearn.metrics import accuracy_score
 from sklearn.cross_validation import train_test_split
-from utils import extract, freq_list, VOCABULARY
-from party import Party
+from utils import extract, freq_list
+from party import Party, ind_to_party
 import tweet
 import utils
 import numpy as np
