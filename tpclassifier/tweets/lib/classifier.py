@@ -5,6 +5,7 @@ import utils
 
 class Classifier:
 
+
     """
         Loads the classifier with given training data and a list of words to watch for.
     """
@@ -77,3 +78,4 @@ class Classifier:
             feature_probs.append(probability)
         combined = prob_of_party * utils.product(feature_probs)
         return combined
+

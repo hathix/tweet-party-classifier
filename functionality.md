@@ -6,7 +6,7 @@
 
 * The class Tweet is defined with party, name, text, and freq_list. 
 
-* We started working on the Bayes classifier (as of Wednesday) 
+* We started working on the Bayes classifier and have a very basic front end set up.
 
 ###Problems:
 
