@@ -14,7 +14,7 @@ def index(request):
 	tweets = main.parse_tweets(raw_tweets)
 	training_tweets, testing_tweets = utils.partition(tweets)
 	classifier = main.get_classifier(training_tweets)
-	accuracy = classifier.accuracy(testing_tweets)
+	accuracy = classifier.word_list
 
 	num_tweets = Tweet.objects.count()
 

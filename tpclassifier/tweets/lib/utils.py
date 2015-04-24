@@ -4,7 +4,11 @@ import re
 import operator
 import random
 
-stopwords = set(nltk.corpus.stopwords.words("english"))
+# use normal english stopwords plus custom excluded twitter stopwords
+english_stopwords = set(nltk.corpus.stopwords.words("english"))
+twitter_stopwords = set(['http', 'https', 'rt', 'amp'])
+stopwords = english_stopwords.union(twitter_stopwords)
+
 word_re = re.compile("\w+")
 stemmer = nltk.stem.snowball.EnglishStemmer()
 
