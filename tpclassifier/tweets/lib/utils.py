@@ -68,7 +68,7 @@ def product(nums):
     Randomly splits a list of data items into a training set and a test set.
 """
 def partition(data):
-    train_ratio = 2 / 3
+    train_ratio = 0.80
 
     shuffled = random.sample(data, len(data))
     # first (len * train_ratio) elements are training, rest are testing.
