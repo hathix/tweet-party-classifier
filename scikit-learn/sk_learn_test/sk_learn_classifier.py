@@ -1,7 +1,7 @@
 from sklearn.naive_bayes import BernoulliNB
 from sklearn.metrics import accuracy_score
 from sklearn.cross_validation import train_test_split
-from utils import extract, freq_list
+from utils import extract, freq_list, VOCABULARY
 from party import Party
 import tweet
 import utils
@@ -52,7 +52,10 @@ class Classifier:
             out of the Tweet text (and to allow for better abstraction), a Tweet object is used.
             The Classifier object encapsulates the state of the Bayes Classifier.
         """
-        pass
+        [t.load_freq_list(self.vocabulary) for t in test_list]
+        X_test, y_test = self.vectorize(test_list)
+        y_pred = self.clf.predict(X_test)
+        return accuracy_score(y_test, y_pred)
 
     def vectorize(self, tweet_list):
         """
