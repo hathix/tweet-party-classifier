@@ -12,7 +12,7 @@
 
 * We had a problem finding the right algorithm, since we are using a list of booleans. Naive Bayes is not particularly built for a list of bools (and is normally used with something like heights or polling data. (see http://cs109.github.io/2014/pages/lectures/lecture14-bayesian-statistics.html#/) 
 
-* We changed our project idea slightly after we met with Stefan. 
+* We changed our project idea slightly after we met with Stefan. Now, we compare the party that a politician is in with the party determined by the language of the Tweets.
 
 ###Teamwork:
 
