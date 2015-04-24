@@ -5,6 +5,7 @@ from utils import extract, freq_list, VOCABULARY
 from party import Party
 import tweet
 import utils
+import numpy as np
 
 class Classifier:
 
@@ -63,7 +64,10 @@ class Classifier:
             features and a vector of Party labels, this is suitable to
             feed as input to the scikit-learn classifier.
         """
-        pass
+        y = [tweet.party.value for tweet in tweet_list]
+        freq_lists = [tweet.freq_list for tweet in tweet_list]
+        X = np.array(freq_lists)
+        return X,y
 
     """
         Runs the Naive Bayes classifier to determine the probability that the given text
