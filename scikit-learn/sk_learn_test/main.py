@@ -1,7 +1,8 @@
 import utils
 from tweet import Tweet
 from party import Party
-from classifier import Classifier
+from test_classifier import Classifier as TestClassifier
+from sklearn_classifier import Classifier as SklearnClassifier
 
 # Here be testing
 
