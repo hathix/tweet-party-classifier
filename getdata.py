@@ -6,7 +6,7 @@ import csv
 
 # data in this file must be in format: tweet_id, raw_text, party, name
 PATH = "/Users/Ajay/Downloads/CS51project/tweets.csv"
-NUM_TWEETS = 1000
+NUM_TWEETS = 2000
 
 reader = csv.reader(open(PATH, 'rU'))
 
