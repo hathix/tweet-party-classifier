@@ -26,7 +26,7 @@ class Tweet:
         self.freq_list = utils.freq_list(self.text, word_list)
 
 '''
-Fetchs tweets from testd.sqlite3 database and returns a list of Tweet classes.
+Fetches tweets from testd.sqlite3 database and returns a list of Tweet classes.
 '''
 def get_tweets_from_db():
     con = sqlite3.connect('testdb.sqlite3')
