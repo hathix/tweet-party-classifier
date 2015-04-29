@@ -1,6 +1,7 @@
 import nltk
 import re
 import operator
+from sklearn.cross_validation import train_test_split
 
 # use normal english stopwords plus custom excluded twitter stopwords
 english_stopwords = set(nltk.corpus.stopwords.words("english"))
@@ -59,3 +60,17 @@ def freq_list(sample, word_list):
 
 def product(nums):
     return reduce(operator.mul, nums, 1)
+    
+def partition_tweets(tweet_list):
+    """
+        Randomly splits the given Tweet list into a training and a testing list.
+        Based on train_test_split method from scikit-learn.
+    """
+    y = [t.party for t in tweet_list]
+    inds = list(range(len(tweet_list)))
+    inds_train, inds_test, _, _ = train_test_split(inds, y, test_size=0.3, random_state=42)
+
+    train = [tweet_list[i] for i in inds_train]
+    test = [tweet_list[i] for i in inds_test]
+
+    return train, test
