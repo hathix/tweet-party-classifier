@@ -19,6 +19,21 @@ Using scikit-learn helps to cut down on development time by sparing us the troub
 We hope to assess differences in accuracy between the scikit-learn implementation and our custom implementation.
 
 
+### Accuracy and time reports.
+
+Tweets in DB: ~2000
+Vocabulary size: 2500
+Accuracy of classifier in train set: 0.920
+Accuracy of classifier in test set: 0.724
+Total running time: 5.44 secs
+
+Tweets in DB: ~120K
+Vocabulary size: 2500
+Accuracy of classifier in train set: 0.768
+Accuracy of classifier in test set: 0.759
+Total running time: 353.05 secs
+
+
 ### How to setup
 
 The classification and feature extraction pipeline has been tested with the
@@ -48,5 +63,5 @@ This will
 - convert datasets to matrix form
 - train a Bernoulli Naive Bayes classifier (best suited for boolean features)
 - print out predicted results for a sample of the test data
-- print out accuracy score over entire test data for both classifiers
+- print out accuracy score over entire test data for classifier(s)
 
