@@ -1,4 +1,8 @@
 import utils
+from utils import *
+from party import Party
+import pandas as pd
+import sqlite3
 
 """
     Encapsulates a Tweet.
@@ -20,3 +24,12 @@ class Tweet:
     """
     def load_freq_list(self, word_list):
         self.freq_list = utils.freq_list(self.text, word_list)
+
+'''
+Fetches tweets from testd.sqlite3 database and returns a list of Tweet classes.
+'''
+def get_tweets_from_db():
+    con = sqlite3.connect('testdb.sqlite3')
+    df = pd.read_sql('SELECT * from tweets_tweet', con)
+    tweets= [Tweet(row['party'], row['name'], row['raw_text']) for i,row in df.iterrows()]
+    return tweets
