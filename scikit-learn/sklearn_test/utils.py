@@ -2,8 +2,12 @@ import nltk
 import re
 import operator
 
-stopwords = set(nltk.corpus.stopwords.words("english"))
-word_re = re.compile("\w+")
+# use normal english stopwords plus custom excluded twitter stopwords
+english_stopwords = set(nltk.corpus.stopwords.words("english"))
+twitter_stopwords = set(['http', 'https', 'rt', 'amp'])
+stopwords = english_stopwords.union(twitter_stopwords)
+
+word_re = re.compile("[A-Za-z_]+")
 stemmer = nltk.stem.snowball.EnglishStemmer()
 
 """
