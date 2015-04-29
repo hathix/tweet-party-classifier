@@ -33,3 +33,20 @@ following library versions:
 - numpy==1.9.1
 
 
+#### Running classifiers and/or comparing:
+
+After installing requirements, run
+
+```python main.py```
+
+This will
+
+- fetch a list of sample tweets ( fetched from included SQLite DB)
+- create a vocabulary of frequent words
+- turn the tweets into boolean vectors
+- create training and test sets
+- convert datasets to matrix form
+- train a Bernoulli Naive Bayes classifier (best suited for boolean features)
+- print out predicted results for a sample of the test data
+- print out accuracy score over entire test data for both classifiers
+
