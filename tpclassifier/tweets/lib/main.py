@@ -52,7 +52,7 @@ print(classifier.accuracy([testr]))
 """
 def get_classifier(tweets):
     # tweakable parameters
-    word_frequency_list_length = 50
+    word_frequency_list_length = 2500
 
     words = utils.most_common_words([t.text for t in tweets], word_frequency_list_length)
     [t.load_freq_list(words) for t in tweets]
