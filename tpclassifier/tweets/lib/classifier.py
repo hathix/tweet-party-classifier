@@ -74,8 +74,9 @@ class Classifier:
     # P(y = party) * product(P(x_i = u_i | y = party))
     def bayes(self, party, sample_freq_list):
         party_tweets = self.tweets_by_party[party]
+        num_party_tweets = len(party_tweets)
         prob_of_party = len(party_tweets) / len(self.tweets)
-        feature_probs = []
+        feature_product = 1
         # iterate over every word (boolean flag)
         for i in xrange(0, len(sample_freq_list)):
             # P(A|B) = P(B|A) * P(A) / P(B)
@@ -86,7 +87,7 @@ class Classifier:
             for test_tweet in party_tweets:
                 if test_tweet.freq_list[i] == sample_freq_list[i]:
                     num_matching += 1
-            probability = num_matching / len(party_tweets)
-            feature_probs.append(probability)
-        return prob_of_party * utils.product(feature_probs)
+            probability = num_matching / num_party_tweets
+            feature_product *= probability
+        return prob_of_party * feature_product
 

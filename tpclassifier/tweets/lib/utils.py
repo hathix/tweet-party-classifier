@@ -21,15 +21,23 @@ stemmer = nltk.stem.snowball.EnglishStemmer()
 """
 def extract(text):
     tokens = nltk.word_tokenize(text)
-    words = [word.lower() for word in tokens]
-    # remove stopwords
-    without_stopwords = [word for word in words if word not in stopwords]
-    # filter out non-words
-    content_words = [word_re.match(word) for word in without_stopwords]
-    content_words_collapsed = [x.group() for x in content_words if x != None]
-    # normalize by stemming (e.g. turn "running" into "run")
-    normalized = [stemmer.stem(word) for word in content_words_collapsed]
-    return normalized
+    def clean_word(token):
+        word = token.lower()
+        # remove stopwords
+        if word in stopwords:
+            return None
+        else:
+            # filter out non-words
+            word_match = word_re.match(word)
+            if word_match == None:
+                return None
+            else:
+                # normalize by stemming (e.g. turn "running" into "run")
+                return stemmer.stem(word_match.group())
+    cleaned_words = [clean_word(word) for word in tokens]
+    # remove None's
+    compacted_words = [x for x in cleaned_words if x != None]
+    return compacted_words
 
 """
     Returns the n most common words in the given corpus of text.
@@ -57,12 +65,6 @@ def freq_list(sample, word_list):
     word_set = set(word_list)
     flags = [1 if word in sample_words else 0 for word in word_set]
     return flags
-
-"""
-    product([1,2,3]) = 6
-"""
-def product(nums):
-    return reduce(operator.mul, nums, 1)
 
 """
     Randomly splits a list of data items into a training set and a test set.
