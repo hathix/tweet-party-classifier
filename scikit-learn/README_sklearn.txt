@@ -5,7 +5,7 @@ Implementation of a Naive Bayes classifier for political tweets using scikit-lea
 * test_classifier implements an ad-hoc NB from scratch
 * sklearn_classifier makes use of the BernoulliNB classifier bundled in scikit-learn
 
-The main difference between the two is speed. This is due to the fact that scikit-learn uses contiguous in-memory C-arrays (numpy arrays) instead of Python lists. This data structure that is able to handle heavy math manipulations much more efficiently.
+The main difference between the two is speed. This is due to the fact that scikit-learn uses contiguous in-memory C-arrays (numpy arrays) instead of Python lists. This data structure is able to handle heavy math manipulations much more efficiently.
 
 
 ### Why scikit-learn?
@@ -68,7 +68,7 @@ We like the fact that the accuracy gap between train/test data has reduced drast
 This means the model generalizes better to unseen data and is not overfitting as it was before.
 
 
-### How to setup
+### How to setup.
 
 The classification and feature extraction pipeline has been tested with the
 following library versions:
@@ -100,7 +100,7 @@ This will
 - print out accuracy score over entire test data for classifier(s)
 
 
-### Improvements
+### Improvements.
 
 At the moment we are running the classifiers with a vocabulary containing common words, but we could improve the algorithm by selecting those words that maximize dispersion upon Republican/Democrat classes, something like “factor analysis” - http://scikit-learn.org/stable/modules/generated/sklearn.decomposition.FactorAnalysis.html.
 
