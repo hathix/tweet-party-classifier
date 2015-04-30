@@ -21,10 +21,18 @@ class Classifier:
         Predicts the party that was most likely to have authored the given text.
     """
     def predict(self, text):
+        # optimization: because there are only 2 parties, we only need to check 1
+        probability_democrat = self.test(text, Party.Democrat)
+        if probability_democrat > 0.5:
+            return Party.Democrat
+        else:
+            return Party.Republican
+        '''
         probabilities = [(party, self.test(text, party)) for party in self.parties]
         sorted_pairs = sorted(probabilities, key=lambda pair: pair[1])
         most_likely_pair = sorted_pairs[-1]
         return most_likely_pair[0]
+        '''
 
     """
         Returns a float representing the fraction of the time that the classifier
@@ -43,9 +51,10 @@ class Classifier:
     """
     def test(self, text, party_guess):
         freq_list = utils.freq_list(text, self.word_list)
-        numerator = self.bayes(party_guess, self.tweets_by_party[party_guess], freq_list)
-        denominator_list = [self.bayes(party, self.tweets_by_party[party], freq_list) for party in self.parties]
-        denominator = sum(denominator_list)
+        # running the bayes predictor for each party
+        probabilities = { party: self.bayes(party, freq_list) for party in self.parties }
+        numerator = probabilities[party_guess]
+        denominator = sum(probabilities.values())
         if denominator == 0:
             return None
         else:
@@ -63,7 +72,8 @@ class Classifier:
         Returns: float
     """
     # P(y = party) * product(P(x_i = u_i | y = party))
-    def bayes(self, party, party_tweets, sample_freq_list):
+    def bayes(self, party, sample_freq_list):
+        party_tweets = self.tweets_by_party[party]
         prob_of_party = len(party_tweets) / len(self.tweets)
         feature_probs = []
         # iterate over every word (boolean flag)
@@ -72,10 +82,11 @@ class Classifier:
             # P(match|party) = P(party|match) * P(match) / P(party)
             #                = P(match)
             # because we're only looking at the party's tweets
-            matching_fn = lambda test_tweet: test_tweet.freq_list[i] == sample_freq_list[i]
-            matching_tweets = filter(matching_fn, party_tweets)
-            probability = len(matching_tweets) / len(party_tweets)
+            num_matching = 0
+            for test_tweet in party_tweets:
+                if test_tweet.freq_list[i] == sample_freq_list[i]:
+                    num_matching += 1
+            probability = num_matching / len(party_tweets)
             feature_probs.append(probability)
-        combined = prob_of_party * utils.product(feature_probs)
-        return combined
+        return prob_of_party * utils.product(feature_probs)
 
