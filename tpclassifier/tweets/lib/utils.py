@@ -23,17 +23,20 @@ def extract(text):
     tokens = nltk.word_tokenize(text)
     def clean_word(token):
         word = token.lower()
+        return word
         # remove stopwords
         if word in stopwords:
             return None
         else:
+            '''
             # filter out non-words
             word_match = word_re.match(word)
             if word_match == None:
                 return None
             else:
-                # normalize by stemming (e.g. turn "running" into "run")
-                return stemmer.stem(word_match.group())
+            '''
+            # normalize by stemming (e.g. turn "running" into "run")
+            return stemmer.stem(word_match.group())
     cleaned_words = [clean_word(word) for word in tokens]
     # remove None's
     compacted_words = [x for x in cleaned_words if x != None]
