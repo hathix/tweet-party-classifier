@@ -3,6 +3,7 @@ import nltk
 import re
 import operator
 import random
+from time import time
 
 # use normal english stopwords plus custom excluded twitter stopwords
 english_stopwords = set(nltk.corpus.stopwords.words("english"))
@@ -20,23 +21,21 @@ stemmer = nltk.stem.snowball.EnglishStemmer()
     extract("This could be paradise") = ["could", "paradis"]
 """
 def extract(text):
-    tokens = nltk.word_tokenize(text)
+    # tokens = nltk.word_tokenize(text)
+    tokens = text.split(' ')
     def clean_word(token):
         word = token.lower()
-        return word
         # remove stopwords
         if word in stopwords:
             return None
         else:
-            '''
             # filter out non-words
             word_match = word_re.match(word)
             if word_match == None:
                 return None
             else:
-            '''
-            # normalize by stemming (e.g. turn "running" into "run")
-            return stemmer.stem(word_match.group())
+                # normalize by stemming (e.g. turn "running" into "run")
+                return stemmer.stem(word_match.group())
     cleaned_words = [clean_word(word) for word in tokens]
     # remove None's
     compacted_words = [x for x in cleaned_words if x != None]
@@ -45,7 +44,7 @@ def extract(text):
 """
     Returns the n most common words in the given corpus of text.
 
-    frequency_distribution(["a","b a","c c a"], 2) = ["a", "c"]
+    most_common_words(["a","b a","c c a"], 2) = ["a", "c"]
 """
 def most_common_words(corpus, n):
     all_words = []
@@ -81,3 +80,13 @@ def partition(data):
     training = shuffled[:split_index]
     testing = shuffled[split_index:]
     return (training, testing)
+
+    '''
+    testing_size = min(100, int(len(data) * 0.25))
+
+    shuffled = random.sample(data, len(data))
+    # first [0, training_size] elements are training, rest are testing.
+    testing = shuffled[:testing_size]
+    training = shuffled[testing_size:]
+    return (training, testing)
+    '''
