@@ -56,7 +56,7 @@ class Classifier(object):
         """
             Transforms a list of tweets into a matrix of boolean
             features and a vector of Party labels, suitable for
-            feeding as input of any scikit-learn classifier
+            feeding as input to any scikit-learn classifier
         """
         y = [tweet.party for tweet in tweet_list]
         freq_lists = [tweet.freq_list for tweet in tweet_list]
