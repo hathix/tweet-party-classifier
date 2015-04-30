@@ -22,6 +22,24 @@ We hope to assess differences in accuracy between the scikit-learn implementatio
 ### Accuracy and time reports.
 
 Tweets in DB: ~2000
+Vocabulary size: 500
+Accuracy of classifier in train set: 0.783
+Accuracy of classifier in test set: 0.639
+Total running time: 3.87 secs
+
+Tweets in DB: ~2000
+Vocabulary size: 1000
+Accuracy of classifier in train set: 0.843
+Accuracy of classifier in test set: 0.663
+Total running time: 4.19 secs
+
+Tweets in DB: ~2000
+Vocabulary size: 2000
+Accuracy of classifier in train set: 0.904
+Accuracy of classifier in test set: 0.712
+Total running time: 5.12 secs
+
+Tweets in DB: ~2000
 Vocabulary size: 2500
 Accuracy of classifier in train set: 0.920
 Accuracy of classifier in test set: 0.724
