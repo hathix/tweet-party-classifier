@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+    <title>Tweet-Party Classifier</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="well lead">
+            <strong>Accuracy:</strong> {{accuracy}}
+            <br>
+            <strong>Number of Tweets:</strong> {{num_tweets}}
+            <br>
+            <strong>Random Tweet:</strong> {{random_tweet_display}}
+            <br>
+            <strong>Most common words:</strong> {{most_common_words}}
+        </div>
+        <br>
+        <form action="/tweets/predict/" method="post">
+            {% csrf_token %}
+            <label for="your_name">Tweet: </label>
+            <input id="raw_text" type="text" name="raw_text">
+            <input type="submit" value="Make Prediction">
+        </form>
+        <br>
+        Go to <a href="/scikit/">Scikit</a> to compare accuracy.
+    </div>
+</body>
