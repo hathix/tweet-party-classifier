@@ -1,6 +1,6 @@
 ###Progress:
 
-* We set up Flask and Heroku, and picked the Naive Bayes classifier as our Machine learning algorithm. 
+* We set up Django and Heroku, and picked the Naive Bayes classifier as our Machine learning algorithm. 
 
 * We obtained the database of tweets from Quorum Analytics. We are using Django to manage our database. We also wrote the code to build a frequency list of words found in each tweet, as well as removes common words. extract (in utils.py) extracts the stemmed form of non-basic words.
 
