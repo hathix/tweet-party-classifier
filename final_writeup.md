@@ -56,23 +56,43 @@ This will
 
 
 ###Report on how things worked and what we learned
+
 ####How the project evolved
-At first we wanted to use congressional data to predict how someone would vote in the future. We decided on comparing votes to parties to 
-We also sped up our run time by removing the nltk word tokenizer, and just doing a custom split. 
+At first we wanted to use congressional data to predict how someone would vote on a given bill. We decided on comparing the language used by a congressman on Twitter to their party line: can the classifier correctly determine which party they are in based on their Tweets? This was more interesting to us because 
+
 ####Unexpected problems
 There was a tradeoff between accuracy and runtime. If we made the size of the vocab list larger, there would be better accuracy but it would take longer to run. Testing takes much longer than training because testing has to go through the entire tweet library.
 ####Advice for a future CS51 student
 
+##Results
+
+![Sample Tweet]()
+
+#####Number of Tweets: 118789
+#####Most common words: http, today, w, https, thank, great, work, year, honor, us, tax, bill, congress, day, help, student, week, famili, join, hous, it, time, congrat, live, good
+
+
+##Original Draft and Specs (Annotated)
+
+
+###Original Draft: 
+
+
+###Final Spec: 
+
+
+###Functionality Checkpoint:
+
 
 ##Questions:
 ####How good was your original planning?
-Good?
+Our original planning matched up pretty well to how we ended up implementing our project. Once we finalized what we were doing (party prediction versus voting prediction) we followed our timeline very closely.
 ####How did your milestones go?
 We followed our milestones pretty well, without any time pressure. 
 ####What was your experience with design, interfaces, languages, systems, testing, etc.?
-We had to learn how to use the Naive Bayes classifier and how to get the tweets from Quorum. 
+We had to learn how to use the Naive Bayes classifier and how to get the tweets from Quorum. We also found efficiency and accuracy to be an important tradeoff. We also wanted to get the accuracy to be as close as possible to the accuracy of scikit-learn. 
 ####What surprises, pleasant or otherwise, did you encounter on the way?
-One surprise was how variable the run time and accuracy are. 
+
 ####What choices did you make that worked out well or badly?
 
 ####What would you like to do if there were more time?
@@ -84,5 +104,6 @@ Ajay: front end and created API to get tweets
 Sam: Scikit-learn
 Saranya: writeup and accuracy
 Neel: Naive Bayes classifier and run time/accuracy improval 
+
 ####What is the most important thing you learned from the project?
 
