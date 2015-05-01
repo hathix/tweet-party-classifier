@@ -72,7 +72,9 @@ def freq_list(sample, word_list):
     Randomly splits a list of data items into a training set and a test set.
 """
 def partition(data):
-    train_ratio = 0.99
+    # tweak this ratio to alter how much data is being used to train and how much to test
+    # decreasing it will make accuracy value more meaningful at the cost of speed
+    train_ratio = 0.90
 
     shuffled = random.sample(data, len(data))
     # first (len * train_ratio) elements are training, rest are testing.
