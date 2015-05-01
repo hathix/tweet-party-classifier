@@ -7,5 +7,6 @@ urlpatterns = [
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^tweets/', include('tweets.urls')),
+    url(r'^scikit/', include('scikit.urls')),
     url(r'^admin/', include(admin.site.urls)),
 ]
