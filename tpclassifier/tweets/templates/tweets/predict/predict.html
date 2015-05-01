@@ -1,8 +1,26 @@
-Prediction: 
-{% if prediction == 0 %}
-	Democrat
-{% else %}
-	Republican
-{% endif %}
+<!doctype html>
+<html>
+<head>
+    <title>Tweet-Party Classifier</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="well lead">
+            <h2>
+                Prediction: 
+                {% if prediction == 0 %}
+                    <span class="text-primary">Democrat</span>
+                {% else %}
+                    <span class="text-danger">Republican</span>
+                {% endif %}
+            </h2>
+        </div>
+
+        Return <a href="/tweets/">home</a>.
+    </div>
+</body>
+
+
+
 <br>
-Return <a href="/tweets/">home</a>.
